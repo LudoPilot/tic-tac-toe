@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .ligne {
+            display: flex;
+            width: 300px;
+        }
+
+        .cell {
+            border: 1px solid rgb(0, 0, 0);
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="grille"></div>
+        <div class="player">Joueur 1</div>
+        <div class="player">Joueur 2</div>
+    </div>
+
+    <script>
+        // Création des joueurs
+        const joueur1 = "X";
+        const joueur2 = "O";
+
+        const grille = document.querySelector('#grille')
+
+        // Création de la grille
+        let baseLigne = document.createElement('div')
+        baseLigne.classList.add("ligne")
+
+        let mcell = document.createElement('div')
+        mcell.classList.add("cell")
+
+
+        for (let l = 0; l < 3; l++) {
+            let ligne = baseLigne.cloneNode()
+
+            for(let c = 0; c < 3; c++){
+                let cell = mcell.cloneNode()
+                ligne.appendChild(cell)
+                cell.addEventListener('click', function() {
+                    cell.innerHTML = "X"
+                })
+            }
+            grille.appendChild(ligne)
+        }
+        
+        let carres = document.querySelectorAll('.cell')
+
+
+    </script>
+</body>
+</html>
